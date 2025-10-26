@@ -1,9 +1,9 @@
 import Dataset, { rawParser, updateDataset } from ".";
 
-import {Chart, ScatterController, LineElement, PointElement, ChartDataset} from 'chart.js';
+import {Chart, ScatterController, LineElement, PointElement, ChartDataset, LineController} from 'chart.js';
 import derive from "../impl/derive";
 import { WithComponent } from "../impl/registerComponent";
-Chart.register(ScatterController, LineElement, PointElement);
+Chart.register(ScatterController, LineElement, PointElement, LineController);
 
 const Line = derive(Dataset, {
     name      : "Line",

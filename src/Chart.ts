@@ -45,7 +45,7 @@ export class ChartJS extends WithUpdate(Object, {selfAsTarget: false})
 
         this._chart = new Chart(this.canvas, {
             options: {
-				locale: 'en-IN',
+				locale: 'en-UK',
 				animation: false,
 				responsive: true,
 				maintainAspectRatio: false,

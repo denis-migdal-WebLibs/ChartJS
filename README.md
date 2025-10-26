@@ -99,6 +99,7 @@ Represents data shown in your graph (e.g. line, histogram, etc).
 | `y` | `string` | `"y"` |
 | `tooltip` | `string\|null\|(item: TooltipItem) => string\|null` | `null` |
 | `datalabel` | `string\|null\|(value, context) => string\|null` | `null` |
+| `monotone` | `boolean` | `false` |
 
 #### Points
 

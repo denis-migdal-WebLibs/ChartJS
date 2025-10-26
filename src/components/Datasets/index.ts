@@ -20,6 +20,7 @@ const Dataset = createComponentClass({
         data   : [] as RawDataset,
         x      : "x",
         y      : "y",
+        monotone : false, 
         tooltip  : null as TooltipLabel,
         datalabel: null as Datalabel
     },
@@ -49,12 +50,14 @@ const Dataset = createComponentClass({
 });
 
 type Data<D extends any> = {
+    name     : string|null,
     color    : string,
     x        : string,
     y        : string,
     data     : D,
     tooltip  : TooltipLabel,
-    datalabel: Datalabel
+    datalabel: Datalabel,
+    monotone : boolean
 }
 
 type Internal<D extends any> = {
@@ -122,10 +125,18 @@ export function updateDataset<D extends any>(data      : Data<D>,
     dataset.xAxisID = data.x;
     dataset.yAxisID = data.y;
 
+    dataset.label = data.name;
+
     dataset.borderColor = dataset.backgroundColor = data.color;
 
     internals.dataset.tooltip   = data.tooltip;
     internals.dataset.datalabel = data.datalabel;
+
+    if( data.monotone === true) {
+        // bugged ? doesn't print lines.
+        //(internals.dataset as ChartDataset<"scatter">).cubicInterpolationMode = "monotone";
+    } else
+        delete internals.dataset.cubicInterpolationMode;
 
     // recomputing data might be costly...
     if( internals.prevData !== data.data) {
