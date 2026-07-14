@@ -1,26 +1,17 @@
 {
-    "include": ["src"],
-    "exclude": ["src/tests"],
-    "compilerOptions": {
-        "outDir": "./build/TS",
-        "paths": {
-            "@misc/*"  : ["./libs/misc/src/*"   ],
-        },
-        "sourceMap": true,
-        "alwaysStrict": true,
-        "strict": true,
-        "noErrorTruncation": true,
-        "exactOptionalPropertyTypes": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitOverride": true,
-        "noImplicitReturns": true,
-        "allowSyntheticDefaultImports": true,
+    "extends": "./build/WebpackFramework/files/tsconfig.json",
 
-        "module": "esnext",
-        "target": "esnext",
-        "allowJs": true,
-        "resolveJsonModule": true,
-        "moduleResolution": "node",
-        "incremental": true,
+    "include": ["./src", "./libs"],
+    "exclude": ["./src/old", "./libs/MWL@2026/tests/", "./libs/misc"],
+
+    "compilerOptions": {
+
+        "rootDir": ".",
+        "outDir": "./build/TS",
+
+        "paths": {
+            "MWL@2026:*"  : ["./libs/MWL@2026/src/*"],
+            "Chart@2026:*": ["./src/*"],
+        }
     }
 }

@@ -1,3 +1,4 @@
+/*
 // TODO: "import @XXX"
 import ChartJS   from "../../../../";
 
@@ -12,3 +13,4 @@ const line2 = chart.createLine({showPoints: true, color: "green"});
 line2.properties.data = [[0.5,0], [0.5,1]];
 
 document.body.append(chart.canvas);
+*/

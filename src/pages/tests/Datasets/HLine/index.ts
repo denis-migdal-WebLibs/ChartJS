@@ -1,3 +1,4 @@
+/*
 // TODO: "import @XXX"
 import ChartJS   from "../../../../";
 
@@ -13,3 +14,4 @@ line2.properties.data = 0.4;
 line2.properties.showPoints = false;
 
 document.body.append(chart.canvas);
+*/

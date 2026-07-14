@@ -1,7 +1,7 @@
 <div align="center">
   <h1>ChartJS++</h1>
 
-  <p>Chart.JS wrapper enabling you to build and configure your graphs with OO interfaces.</p>
+  <p>Chart.js wrapper enabling you to build and configure your graphs with OO interfaces.</p>
 </div>
 
 ## Usage

@@ -1,1 +1,1 @@
-export {default as default} from "../../Chart";
+export {default as default} from "Chart@2026:core/Chart/";
