@@ -1,12 +1,14 @@
 import {Chart} from "Chart@2026:core/";
-import Dataset from "Chart@2026:core/datasets/Dataset";
 
 const chart = new Chart();
 
 chart.api.addLine("name", {
+    color     : "blue",
     parsedData: [{x: 0, y:0}, {x: 0, y:0}, {x: 1, y:1}]
 });
 
+/*
+import Dataset from "Chart@2026:core/datasets/Dataset";
 const line = new Dataset({
     parsedData: [{x: 0, y:0}, {x: 0, y:0}, {x: 1, y:1}],
 });
@@ -23,6 +25,7 @@ setInterval( () => {
     //line.properties.color = colors[i%2];
 }, 1000);
 
+*/
 /* 
 //TODO...
 chart.addLine({color: "red", data: [[0,0], [1,1]] as const});

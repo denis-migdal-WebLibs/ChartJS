@@ -11,8 +11,7 @@ function addMethod<T extends Cstr<any>>(Klass : T,
                                         key   : string|symbol,
                                         method: (this: InstanceType<T>, ...args:any[]) => any
                                     ) {
-    // @ts-ignore
-    Klass[key] = method;
+    Klass.prototype[key] = method;
 }
 
 export default function registerComponent<T extends Cstr<Component, any> & {name: string} >(Klass: T) {

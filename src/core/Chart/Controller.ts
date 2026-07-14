@@ -148,5 +148,3 @@ export class ChartController {
             this.chartJS!.update('none');
     }
 }
-
-console.warn("ok");
