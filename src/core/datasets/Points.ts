@@ -6,8 +6,6 @@ import { WithComponent } from 'Chart@2026:core/registerComponent';
 import {Chart, ScatterController, PointElement} from 'chart.js';
 Chart.register(ScatterController, PointElement);
 
-
-//TODO: data + parsedData (view)...
 const Points = createDatasetClass({
     name         : "Points",
     chartObject  : {

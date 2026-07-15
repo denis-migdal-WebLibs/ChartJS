@@ -2,13 +2,15 @@ import {Chart} from "Chart@2026:core/";
 
 const chart = new Chart();
 
-chart.api.addHLine("name2", {data: 0.5});
+chart.api.addHLine("name2", {data: 0.5})
+         .addLinearScale("x", {min: 0, max: 10});
+
+chart.api.setZoom("xy");
 
 const pts = chart.api.createPoints("name", {
     color : "blue",
     data  : [{x: 0, y:0}, {x: 0, y:0}, {x: 1, y:1}]
 });
-
 
 let i = 0;
 setInterval( () => {

@@ -2,6 +2,7 @@ import { Constant, Signal, Value } from "MWL@2026:Reactive/Properties/Controller
 import { BaseScale, createScaleClass } from "./core";
 
 import {Chart, CategoryScale} from 'chart.js';
+import { WithComponent } from "Chart@2026:core/registerComponent";
 Chart.register(CategoryScale);
 
 const CScale = createScaleClass({
@@ -51,3 +52,8 @@ const CatTicks = {
     maxRotation: 90,
     minRotation: 90
 } as const;
+
+
+declare module "../Chart/Controller" {
+    interface ChartController extends WithComponent<typeof CScale> {}
+}

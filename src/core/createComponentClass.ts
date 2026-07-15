@@ -81,7 +81,7 @@ export default function createComponentClass<
             }
 
             binding.context = {
-                    chartObject: Object.assign({}, chartObject) as any,
+                    chartObject: structuredClone(chartObject) as any,
                     renderer
             };
 

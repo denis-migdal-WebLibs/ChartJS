@@ -2,6 +2,7 @@ import { Constant, Value } from "MWL@2026:Reactive/Properties/Controllers";
 import { BaseScale, createScaleClass } from "./core";
 
 import {Chart, LinearScale} from 'chart.js';
+import { WithComponent } from "Chart@2026:core/registerComponent";
 Chart.register(LinearScale);
 
 const LScale = createScaleClass({
@@ -44,3 +45,8 @@ const LScale = createScaleClass({
 });
 
 export default LScale;
+
+
+declare module "../Chart/Controller" {
+    interface ChartController extends WithComponent<typeof LScale> {}
+}

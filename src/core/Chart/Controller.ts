@@ -77,15 +77,20 @@ export class ChartController {
 
         this.invalidate();
     }
-    find(name: string) {
+    find<T extends Component>(name: string): T|null {
         // should still be fast as the array should be small.
-        return this.bindings.find( c => c.name === name ) ?? null;
+        const result = this.bindings.find( c => c.name === name );
+
+        if( result === undefined)
+            return null;
+
+        return result.component as T;
     }
-    get(name: string) {
-        const binding = this.find(name);
+    get<T extends Component>(name: string): T {
+        const binding = this.find<T>(name);
         if( binding === null)
             throw new Error(`Component ${name} not found`);
-        return binding.component;
+        return binding;
     }
 
     protected readonly invalidateCallback = () => this.invalidate();
