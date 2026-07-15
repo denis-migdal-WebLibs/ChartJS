@@ -2,10 +2,22 @@ import {Chart} from "Chart@2026:core/";
 
 const chart = new Chart();
 
-chart.api.addLine("name", {
-    color     : "blue",
-    parsedData: [{x: 0, y:0}, {x: 0, y:0}, {x: 1, y:1}]
+chart.api.addHLine("name2", {data: 0.5});
+
+const pts = chart.api.createPoints("name", {
+    color : "blue",
+    data  : [{x: 0, y:0}, {x: 0, y:0}, {x: 1, y:1}]
 });
+
+
+let i = 0;
+setInterval( () => {
+    ++i;
+    let data = pts.properties.data;
+    data[1].x = data[1].y = (i/10)%1;
+    pts.properties.data = data; // force change...
+    //line.properties.color = colors[i%2];
+}, 1000);
 
 /*
 import Dataset from "Chart@2026:core/datasets/Dataset";
