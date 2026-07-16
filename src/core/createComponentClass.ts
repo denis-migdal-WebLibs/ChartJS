@@ -3,7 +3,7 @@ import registerComponent from "Chart@2026:core/registerComponent";
 import { WithProperties } from "MWL@2026:Reactive/Properties/createProperties";
 import PropertiesRenderer from "MWL@2026:Reactive/Properties/PropertiesRenderer";
 import { PropertiesDescriptors } from "MWL@2026:Reactive/Properties/Property";
-import { NULL_OBJ } from "MWL@2026:types";
+import { FCT_NULL_OBJ } from "MWL@2026:types/NullObjects";
 
 //type ChartType = keyof ChartTypeRegistry;
 
@@ -38,7 +38,7 @@ export type CreateComponentOptions<
             B    extends Partial<PropertiesBindings<NoInfer<T>, NoInfer<CO>>>,
         > = {
     name        : N,
-    chartObject?: Partial<CO>,
+    chartObject?: Partial<CO>|(() => Partial<CO>),
     // enable the inference of T...
     properties: P & PropertiesDescriptors<T>,
     bindings  : B & Record<Exclude<keyof B, keyof T>, never>,
@@ -55,7 +55,13 @@ export default function createComponentClass<
             B    extends Partial<PropertiesBindings<NoInfer<T>, NoInfer<CO>>>,
         >(options: CreateComponentOptions<N, T, P, CO, B>) {
 
-    const chartObject = options.chartObject ?? NULL_OBJ;
+    let chartObject: () => Partial<CO>;
+    if( options.chartObject === undefined)
+        chartObject = FCT_NULL_OBJ;
+    else if( typeof options.chartObject !== "function" )
+        chartObject = () => structuredClone(options.chartObject as Partial<CO>);
+    else
+        chartObject = options.chartObject;
 
     //TODO: own event (?).
     class BaseComponent extends WithProperties(options.properties)
@@ -81,7 +87,7 @@ export default function createComponentClass<
             }
 
             binding.context = {
-                    chartObject: structuredClone(chartObject) as any,
+                    chartObject: chartObject() as any,
                     renderer
             };
 

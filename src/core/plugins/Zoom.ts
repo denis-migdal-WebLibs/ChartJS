@@ -3,7 +3,7 @@ import { Value } from "MWL@2026:Reactive/Properties/Controllers";
 import { Chart } from "chart.js";
 
 import zoomPlugin from "chartjs-plugin-zoom";
-import { ChartController } from "./Chart/Controller";
+import { ChartController } from "../Chart/Controller";
 Chart.register(zoomPlugin);
 
 type ZoomDirection = "x" | "y" | "xy";
@@ -43,7 +43,7 @@ const Zoom = createComponentClass({
 export default Zoom;
 
 // =================== PLUGIN =========================
-declare module "./Chart/Controller" {
+declare module "../Chart/Controller" {
     // no addZoom/createZoom.
     interface ChartController {
         resetZoom(): ChartController

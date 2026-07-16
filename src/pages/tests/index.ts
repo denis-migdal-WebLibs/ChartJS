@@ -5,11 +5,16 @@ const chart = new Chart();
 chart.api.addHLine("name2", {data: 0.5})
          .addLinearScale("x", {min: 0, max: 10});
 
-chart.api.setZoom("xy");
+chart.api.setZoom("xy")
+         .setDatalabels();
+
+chart.api.setTooltip({title: "Coucou"});
 
 const pts = chart.api.createPoints("name", {
     color : "blue",
-    data  : [{x: 0, y:0}, {x: 0, y:0}, {x: 1, y:1}]
+    data  : [{x: 0, y:0}, {x: 0, y:0}, {x: 1, y:1}],
+    tooltip: "pts",
+    datalabel: "43",
 });
 
 let i = 0;

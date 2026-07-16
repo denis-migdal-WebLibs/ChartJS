@@ -96,7 +96,7 @@ export class ChartController {
     protected readonly invalidateCallback = () => this.invalidate();
 
     protected invalidate(origin: unknown = null) {
-        trigger(this[MAIN_EVENT], origin);
+        trigger(this, origin);
     }
 
     protected init() {
@@ -153,3 +153,5 @@ export class ChartController {
             this.chartJS!.update('none');
     }
 }
+
+console.warn("ok")

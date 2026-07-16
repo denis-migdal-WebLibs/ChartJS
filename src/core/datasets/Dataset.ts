@@ -1,14 +1,13 @@
 import { Signal, Value, View } from "MWL@2026:Reactive/Properties/Controllers";
 import { createDatasetClass } from "./core";
 import { ChartType } from "chart.js";
+import { TooltipLabel } from "Chart@2026:core/plugins/Tooltips";
+import { Datalabel } from "Chart@2026:core/plugins/Datalabels";
 
 /*
 type Data<D extends any> = {
     x        : string, "x"
     y        : string, "y"
-
-    tooltip  : TooltipLabel, null
-    datalabel: Datalabel, null
 
     monotone : boolean // seems bugged.
     // dataset.cubicInterpolationMode = "monotone";
@@ -36,6 +35,9 @@ const Dataset = createDatasetClass({
         parsedData: View("data", ValueConverter),
         //parsedData: Computed( (properties: {data: ParsedData}) => properties.data),
         color     : Value<string>("black"),
+
+        tooltip  : Value<TooltipLabel>(null),
+        datalabel: Value<Datalabel>(null),
     },
     bindings  : {
         type : (dataset, type) => {
@@ -46,6 +48,16 @@ const Dataset = createDatasetClass({
         },
         color: (dataset, color) => {
             dataset.borderColor = dataset.backgroundColor = color;
+        },
+        tooltip: (dataset, tooltip) => {
+            if( dataset.plugins === undefined )
+                dataset.plugins = {};
+            dataset.plugins.tooltip = tooltip;
+        },
+        datalabel: (dataset, datalabel) => {
+            if( dataset.plugins === undefined )
+                dataset.plugins = {};
+            dataset.plugins.datalabel = datalabel;
         }
     }
 });
@@ -55,7 +67,6 @@ export default Dataset;
 /*
 
 type DatasetExtra = {
-    tooltip  ?: TooltipLabel,
     datalabel?: Datalabel
 }
 
