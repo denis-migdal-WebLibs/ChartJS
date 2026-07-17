@@ -1,4 +1,4 @@
-import { Constant, Value } from "MWL@2026:Reactive/Properties/Controllers";
+import { Constant, Value } from "MWL@2026:Reactive/Properties";
 import { BaseScale, createScaleClass } from "./core";
 
 import {Chart, LinearScale} from 'chart.js';

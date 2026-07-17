@@ -1,5 +1,5 @@
 import createComponentClass from "Chart@2026:core/createComponentClass";
-import { Value } from "MWL@2026:Reactive/Properties/Controllers";
+import { Value } from "MWL@2026:Reactive/Properties";
 import { Chart } from "chart.js";
 
 import zoomPlugin from "chartjs-plugin-zoom";

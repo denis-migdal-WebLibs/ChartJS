@@ -1,7 +1,6 @@
 import { ScaleOptions, ScaleType } from "chart.js";
 import createComponentClass, { CreateComponentOptions, PropertiesBindings } from "Chart@2026:core/createComponentClass";
-import { Constant, Value } from "MWL@2026:Reactive/Properties/Controllers";
-import { PropertiesDescriptors } from "MWL@2026:Reactive/Properties/Property";
+import { PropertiesDescriptors, Constant, Value } from "MWL@2026:Reactive/Properties";
 
 // agnostic.
 export function createScaleClass<

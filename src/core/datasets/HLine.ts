@@ -2,7 +2,7 @@ import {Chart, ScatterController, LineElement, PointElement, LineController} fro
 import { createDatasetClass } from './core';
 import { WithComponent } from 'Chart@2026:core/registerComponent';
 import Line from './Line';
-import { Constant, Value, View } from 'MWL@2026:Reactive/Properties/Controllers';
+import { Constant, Value, View } from 'MWL@2026:Reactive/Properties';
 import { NULL_ARRAY } from 'MWL@2026:types';
 Chart.register(ScatterController, LineElement, PointElement, LineController);
 

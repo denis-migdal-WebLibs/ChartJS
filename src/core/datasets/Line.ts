@@ -1,7 +1,7 @@
 import {Chart, ScatterController, LineElement, PointElement, LineController} from 'chart.js';
 import { createDatasetClass } from './core';
 import Dataset from './Dataset';
-import { Constant, Value } from 'MWL@2026:Reactive/Properties/Controllers';
+import { Constant, Value } from 'MWL@2026:Reactive/Properties';
 import { WithComponent } from 'Chart@2026:core/registerComponent';
 Chart.register(ScatterController, LineElement, PointElement, LineController);
 

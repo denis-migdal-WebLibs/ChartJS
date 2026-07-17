@@ -1,4 +1,45 @@
 import {Chart} from "Chart@2026:core/";
+import { observeChanges } from "MWL@2026:Reactive/Observers/observe";
+import { Value, View } from "MWL@2026:Reactive/Properties";
+import { createPropertiesFactory } from "MWL@2026:Reactive/Properties/createProperties.new";
+import { getPropertyController } from "MWL@2026:Reactive/Properties/propertiesHelpers";
+import { syncProperty } from "MWL@2026:Reactive/Properties/syncProperty";
+
+// ====
+
+class Converter {
+    convert(value: number) {
+        return -1 * value;
+    }
+}
+
+const factory = createPropertiesFactory({
+    test: Value(0),
+    view: View("test", Converter)
+});
+
+const A = factory({test: 1});
+const B = factory({test: 2});
+
+observeChanges(B, () => {
+    console.warn("B changed", B.test);
+});
+
+A.test = 3;
+
+syncProperty( getPropertyController(A, "view"),
+              getPropertyController(B, "test")
+            );
+
+console.warn( getPropertyController(B, "test") );
+
+console.warn("=== start ===");
+A.test = 4;
+console.warn("=== end ===");
+B.test = 5;
+
+// ====
+
 
 const chart = new Chart();
 

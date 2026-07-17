@@ -1,8 +1,7 @@
 import { ChartController } from "Chart@2026:core/Chart/Controller";
 import createComponentClass from "Chart@2026:core/createComponentClass";
-import { Value } from "MWL@2026:Reactive/Properties/Controllers";
+import { updateProperties, Value } from "MWL@2026:Reactive/Properties";
 import { NULL_OP } from "MWL@2026:types";
-import { updateProperties } from "MWL@2026:Reactive/Properties/createProperties";
 
 import { Chart, ChartOptions, ChartType, ChartTypeRegistry, CoreInteractionOptions, InteractionMode, Tooltip, TooltipItem } from 'chart.js';
 
