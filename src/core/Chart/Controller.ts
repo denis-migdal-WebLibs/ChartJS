@@ -1,6 +1,6 @@
-import { createEvent, Event } from "MWL@2026:Reactive/Event";
-import { MAIN_EVENT, trigger } from "MWL@2026:Reactive/Observers/EventSource";
-import { observeChanges, unobserve } from "MWL@2026:Reactive/Observers/observe";
+import { createEvent, trigger, Event, observeChanges, unobserve } from "MWL@2026:exports/Reactive/Events";
+
+import { MAIN_EVENT } from "MWL@2026:core/Reactive/CallbackRegistry";
 
 import {Chart, ScatterController, LineElement, PointElement, LinearScale} from 'chart.js';
 Chart.register(ScatterController, LineElement, PointElement, LinearScale);

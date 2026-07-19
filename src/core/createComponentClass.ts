@@ -1,7 +1,8 @@
+import { WithProperties, PropertiesRenderer, PropertiesDescriptors} from "MWL@2026:exports/Reactive/Properties";
+import { FCT_NULL_OBJ } from "MWL@2026:exports/types";
+
 import { Component, ComponentBinding } from "Chart@2026:core/Chart/Controller";
 import registerComponent from "Chart@2026:core/registerComponent";
-import { WithProperties, PropertiesRenderer, PropertiesDescriptors} from "MWL@2026:Reactive/Properties";
-import { FCT_NULL_OBJ } from "MWL@2026:types/NullObjects";
 
 //type ChartType = keyof ChartTypeRegistry;
 

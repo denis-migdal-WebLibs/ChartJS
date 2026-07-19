@@ -1,9 +1,10 @@
-import {Chart, ScatterController, LineElement, PointElement, LineController} from 'chart.js';
+import { Constant, Value, View } from 'MWL@2026:exports/Reactive/Properties/controllers';
+import { NULL_ARRAY } from 'MWL@2026:exports/types';
 import { createDatasetClass } from './core';
 import { WithComponent } from 'Chart@2026:core/registerComponent';
 import Line from './Line';
-import { Constant, Value, View } from 'MWL@2026:Reactive/Properties';
-import { NULL_ARRAY } from 'MWL@2026:types';
+
+import {Chart, ScatterController, LineElement, PointElement, LineController} from 'chart.js';
 Chart.register(ScatterController, LineElement, PointElement, LineController);
 
 class ValueConverter {

@@ -1,9 +1,9 @@
-import createComponentClass from "Chart@2026:core/createComponentClass";
-import { Value } from "MWL@2026:Reactive/Properties";
+import { Value } from "MWL@2026:exports/Reactive/Properties/controllers";
 import { Chart } from "chart.js";
+import createComponentClass from "Chart@2026:core/createComponentClass";
+import { ChartController } from "../Chart/Controller";
 
 import zoomPlugin from "chartjs-plugin-zoom";
-import { ChartController } from "../Chart/Controller";
 Chart.register(zoomPlugin);
 
 type ZoomDirection = "x" | "y" | "xy";

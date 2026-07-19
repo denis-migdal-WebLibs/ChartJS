@@ -1,8 +1,8 @@
-import { Constant, Signal, Value } from "MWL@2026:Reactive/Properties";
+import { Constant, Signal, Value } from "MWL@2026:exports/Reactive/Properties/controllers";
+import { WithComponent } from "Chart@2026:core/registerComponent";
 import { BaseScale, createScaleClass } from "./core";
 
 import {Chart, CategoryScale} from 'chart.js';
-import { WithComponent } from "Chart@2026:core/registerComponent";
 Chart.register(CategoryScale);
 
 const CScale = createScaleClass({

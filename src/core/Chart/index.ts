@@ -1,5 +1,5 @@
-import defineWebComponent from "MWL@2026:DOM/WebComponent/defineWebComponent";
-import { observe } from "MWL@2026:Reactive/Observers/observe";
+import {defineWebComponent} from "MWL@2026:exports/DOM/WebComponent";
+import { observe } from "MWL@2026:exports/Reactive/Events";
 import {ChartController} from "./Controller";
 
 const ChartJS = defineWebComponent({

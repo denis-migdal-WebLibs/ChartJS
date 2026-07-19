@@ -1,4 +1,4 @@
-import { Cstr } from "MWL@2026:types";
+import { Cstr } from "MWL@2026:exports/types";
 import {ChartController, Component } from "./Chart/Controller";
 
 export type WithComponent<T extends Cstr<Component> & {name: string}> = 

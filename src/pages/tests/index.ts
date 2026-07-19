@@ -1,9 +1,10 @@
 import {Chart} from "Chart@2026:core/";
-import { observeChanges } from "MWL@2026:Reactive/Observers/observe";
-import { Value, View } from "MWL@2026:Reactive/Properties";
-import { createPropertiesFactory } from "MWL@2026:Reactive/Properties/createProperties.new";
-import { getPropertyController } from "MWL@2026:Reactive/Properties/propertiesHelpers";
-import { syncProperty } from "MWL@2026:Reactive/Properties/syncProperty";
+
+import { createPropertiesFactory } from "MWL@2026:exports/Reactive/Properties";
+import { Value, View } from "MWL@2026:exports/Reactive/Properties/controllers";
+
+import { observeChanges } from "MWL@2026:exports/Reactive/Events";
+import { getProperty, syncProperty } from "MWL@2026:exports/Reactive/Properties/sync";
 
 // ====
 
@@ -27,11 +28,11 @@ observeChanges(B, () => {
 
 A.test = 3;
 
-syncProperty( getPropertyController(A, "view"),
-              getPropertyController(B, "test")
+syncProperty( getProperty(A, "view"),
+              getProperty(B, "test")
             );
 
-console.warn( getPropertyController(B, "test") );
+console.warn( getProperty(B, "test") );
 
 console.warn("=== start ===");
 A.test = 4;
