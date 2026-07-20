@@ -4,7 +4,7 @@ import { createPropertiesFactory } from "MWL@2026:exports/Reactive/Properties";
 import { Value, View } from "MWL@2026:exports/Reactive/Properties/controllers";
 
 import { listen } from "MWL@2026:exports/Reactive/Events";
-import { getProperty, syncProperty } from "MWL@2026:exports/Reactive/Properties/sync";
+import { getProperty, syncProperty, unsyncProperty } from "MWL@2026:exports/Reactive/Properties/sync";
 
 // ====
 
@@ -38,6 +38,16 @@ console.warn("=== start ===");
 A.test = 4;
 console.warn("=== end ===");
 B.test = 5;
+
+console.warn("=== unsync ===");
+
+unsyncProperty( getProperty(A, "view"),
+                getProperty(B, "test")
+            );
+
+A.test = 6;
+
+console.warn("B", B.test);
 
 // ====
 
