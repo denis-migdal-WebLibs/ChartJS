@@ -3,7 +3,7 @@ import {Chart} from "Chart@2026:core/";
 import { createPropertiesFactory } from "MWL@2026:exports/Reactive/Properties";
 import { Value, View } from "MWL@2026:exports/Reactive/Properties/controllers";
 
-import { observeChanges } from "MWL@2026:exports/Reactive/Events";
+import { listen } from "MWL@2026:exports/Reactive/Events";
 import { getProperty, syncProperty } from "MWL@2026:exports/Reactive/Properties/sync";
 
 // ====
@@ -22,7 +22,7 @@ const factory = createPropertiesFactory({
 const A = factory({test: 1});
 const B = factory({test: 2});
 
-observeChanges(B, () => {
+listen(B, () => {
     console.warn("B changed", B.test);
 });
 

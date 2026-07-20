@@ -1,4 +1,4 @@
-import { createEvent, trigger, Event, observeChanges, unobserve } from "MWL@2026:exports/Reactive/Events";
+import { createEvent, trigger, Event, listen, unobserve } from "MWL@2026:exports/Reactive/Events";
 
 import { MAIN_EVENT } from "MWL@2026:core/Reactive/CallbackRegistry";
 
@@ -136,7 +136,7 @@ export class ChartController {
             const binding = this.pendingInsertion[i];
             binding.component.attach(binding);
 
-            observeChanges(binding.component, this.invalidateCallback);
+            listen(binding.component, this.invalidateCallback);
         }
         this.pendingInsertion.length = 0;
 
@@ -153,5 +153,3 @@ export class ChartController {
             this.chartJS!.update('none');
     }
 }
-
-console.warn("ok")
