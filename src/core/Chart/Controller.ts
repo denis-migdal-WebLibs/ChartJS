@@ -1,4 +1,4 @@
-import { trigger, listen, unobserve, WithMainEvent, Observable } from "MWL@2026:exports/Reactive/Events";
+import { trigger, listen, unobserve, Observable, ObservableObject } from "MWL@2026:exports/Reactive/Events";
 
 import {Chart, ScatterController, LineElement, PointElement, LinearScale} from 'chart.js';
 Chart.register(ScatterController, LineElement, PointElement, LinearScale);
@@ -17,7 +17,7 @@ export type ComponentBinding<T = any> = {
     context    : T
 }
 
-export class ChartController extends WithMainEvent() {
+export class ChartController extends ObservableObject {
 
     // h4cky : is undefined until init.
     protected readonly canvas: HTMLCanvasElement;
