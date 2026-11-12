@@ -1,6 +1,6 @@
-import { Constant, Value, View } from 'MWL@2026:exports/Reactive/Properties/controllers';
-import { NULL_ARRAY } from 'MWL@2026:exports/types';
-import { WithComponent } from 'Chart@2026:core/registerComponent';
+import { Constant, Value, View } from 'MWL@2026/exports/Reactive/PropertySystem/controllers';
+import { NULL_ARRAY } from 'MWL@2026/exports/types';
+import { WithComponent } from 'Chart@2026/core/registerComponent';
 import { createDatasetClass } from './core';
 import Line from './Line';
 

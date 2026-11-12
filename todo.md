@@ -1,3 +1,7 @@
+- prefer GraphComponentGroup to special Graph.
+
+## OLD
+
 - see KeyApp/libs/Chart for previous version.
 
 - plugins

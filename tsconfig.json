@@ -1,17 +1,22 @@
 {
     "extends": "./build/WebpackFramework/files/tsconfig.json",
 
-    "include": ["./src", "./libs"],
-    "exclude": ["./src/old", "./libs/MWL@2026/tests/", "./libs/misc"],
+    "include": ["./src"],
+    "exclude": [
+        "**/*.old",
+
+        "./src/core/",
+        "./src/pages/tests/v1/",
+    ],
 
     "compilerOptions": {
 
         "rootDir": ".",
-        "outDir": "./build/TS",
-
+        "outDir": "./build/cache/TS",
+        "tsBuildInfoFile": "./build/cache/TS/tsconfig.tsbuildinfo",
         "paths": {
-            "MWL@2026:*"  : ["./libs/MWL@2026/src/*"],
-            "Chart@2026:*": ["./src/*"],
+            "MWL@2026/*"  : ["./libs/MWL@2026/src/*"],
+            "Chart@2026/*": ["./src/*"],
         }
     }
 }

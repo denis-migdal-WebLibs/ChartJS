@@ -1,7 +1,7 @@
-import { Signal, Value, View } from "MWL@2026:exports/Reactive/Properties/controllers";
+import { Signal, Value, View } from "MWL@2026/exports/Reactive/PropertySystem/controllers";
 import { ChartType } from "chart.js";
-import { TooltipLabel } from "Chart@2026:core/plugins/Tooltips";
-import { Datalabel    } from "Chart@2026:core/plugins/Datalabels";
+import { TooltipLabel } from "Chart@2026/core/plugins/Tooltips";
+import { Datalabel    } from "Chart@2026/core/plugins/Datalabels";
 import { createDatasetClass } from "./core";
 
 /*

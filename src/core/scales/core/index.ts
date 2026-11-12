@@ -1,7 +1,7 @@
-import { PropertiesDescriptors } from "MWL@2026:exports/Reactive/Properties";
-import { Constant, Value } from "MWL@2026:exports/Reactive/Properties/controllers";
+import { PropertiesDescriptors } from "MWL@2026/exports/Reactive/PropertySystem";
+import { Constant, Value } from "MWL@2026/exports/Reactive/PropertySystem/controllers";
 import { ScaleOptions, ScaleType } from "chart.js";
-import createComponentClass, { CreateComponentOptions, PropertiesBindings } from "Chart@2026:core/createComponentClass";
+import createComponentClass, { CreateComponentOptions, PropertiesBindings } from "Chart@2026/core/createComponentClass";
 
 // agnostic.
 export function createScaleClass<

@@ -1,8 +1,8 @@
-import { WithProperties, PropertiesRenderer, PropertiesDescriptors} from "MWL@2026:exports/Reactive/Properties";
-import { FCT_NULL_OBJ } from "MWL@2026:exports/types";
+import { WithProperties, PropertiesEffects, PropertiesDescriptors} from "MWL@2026/exports/Reactive/PropertySystem";
+import { FCT_NULL_OBJ } from "MWL@2026/exports/types";
 
-import { Component, ComponentBinding } from "Chart@2026:core/Chart/Controller";
-import registerComponent from "Chart@2026:core/registerComponent";
+import { Component, ComponentBinding } from "Chart@2026/core/Chart/Controller";
+import registerComponent from "Chart@2026/core/registerComponent";
 
 //type ChartType = keyof ChartTypeRegistry;
 
@@ -10,7 +10,7 @@ export type BaseComponentBinding<
                         T extends Record<string, any>,
                         U
                     > = ComponentBinding<{
-    renderer   : PropertiesRenderer<T>,
+    renderer   : PropertiesEffects<T>,
     chartObject: U
 }>;
 
@@ -74,11 +74,11 @@ export default function createComponentClass<
 
         attach(binding: BaseComponentBinding<T, CO>) {
 
-            const renderer = new PropertiesRenderer<T>(this.properties);
+            const effects = new PropertiesEffects<T>(this.properties);
 
             for(let key in options.bindings) {
                 const b = options.bindings[key as keyof T] as any;
-                renderer.bind(key as any, () => {
+                effects.add(key as any, () => {
                     b(  binding.context.chartObject,
                         this.properties[key],
                         this.properties );

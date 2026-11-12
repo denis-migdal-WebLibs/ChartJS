@@ -1,5 +1,5 @@
-import { Constant } from 'MWL@2026:exports/Reactive/Properties/controllers';
-import { WithComponent } from 'Chart@2026:core/registerComponent';
+import { Constant } from 'MWL@2026/exports/Reactive/PropertySystem/controllers';
+import { WithComponent } from 'Chart@2026/core/registerComponent';
 import { createDatasetClass } from './core';
 import Dataset from './Dataset';
 

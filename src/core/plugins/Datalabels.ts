@@ -1,5 +1,5 @@
-import { ChartController } from "Chart@2026:core/Chart/Controller";
-import createComponentClass from "Chart@2026:core/createComponentClass";
+import { ChartController } from "Chart@2026/core/Chart/Controller";
+import createComponentClass from "Chart@2026/core/createComponentClass";
 import { Chart } from "chart.js";
 
 import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels';

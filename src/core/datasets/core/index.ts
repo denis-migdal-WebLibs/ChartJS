@@ -1,9 +1,9 @@
-import { PropertiesDescriptors } from "MWL@2026:exports/Reactive/Properties";
+import { PropertiesDescriptors } from "MWL@2026/exports/Reactive/PropertySystem";
 
 import { ChartDataset, ChartTypeRegistry } from "chart.js";
-import createComponentClass, { CreateComponentOptions, PropertiesBindings } from "Chart@2026:core/createComponentClass";
-import { Datalabel }    from "Chart@2026:core/plugins/Datalabels";
-import { TooltipLabel } from "Chart@2026:core/plugins/Tooltips";
+import createComponentClass, { CreateComponentOptions, PropertiesBindings } from "Chart@2026/core/createComponentClass";
+import { Datalabel }    from "Chart@2026/core/plugins/Datalabels";
+import { TooltipLabel } from "Chart@2026/core/plugins/Tooltips";
 
 type DatasetPlugins = {
     tooltip  ?: TooltipLabel

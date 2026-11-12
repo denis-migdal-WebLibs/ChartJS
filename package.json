@@ -8,6 +8,7 @@
         "url": "git+https://github.com/denis-migdal/ChartJS"
     },
     "scripts": {
+        "watch-types": "npx tsc --noEmit --watch",
         "build": "clear ; webpack --no-watch --mode=development",
         "build-prod": "clear ; webpack --no-watch --mode=production",
         "watch": "clear ; webpack --watch    --mode=development"

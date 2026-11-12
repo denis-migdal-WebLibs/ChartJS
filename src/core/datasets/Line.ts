@@ -1,5 +1,5 @@
-import { Constant, Value } from 'MWL@2026:exports/Reactive/Properties/controllers';
-import { WithComponent } from 'Chart@2026:core/registerComponent';
+import { Constant, Value } from 'MWL@2026/exports/Reactive/PropertySystem/controllers';
+import { WithComponent } from 'Chart@2026/core/registerComponent';
 import { createDatasetClass } from './core';
 import Dataset from './Dataset';
 
@@ -8,16 +8,16 @@ Chart.register(ScatterController, LineElement, PointElement, LineController);
 
 const Line = createDatasetClass({
     name         : "Line",
+    properties: {
+        ...Dataset.properties,
+        type      : Constant<"scatter">("scatter"),
+        showPoints: Value   <boolean>  (false),
+    },
     chartObject  : {
         showLine   : true,
         borderWidth: 2,
         parsing    : false as const,
         normalized : true
-    },
-    properties: {
-        ...Dataset.properties,
-        type      : Constant<"scatter">("scatter"),
-        showPoints: Value   <boolean>  (false),
     },
     bindings: {
         ...Dataset.bindings,

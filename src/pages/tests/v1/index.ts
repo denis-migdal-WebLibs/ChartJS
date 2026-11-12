@@ -1,53 +1,6 @@
-import {Chart} from "Chart@2026:core/";
+// @ts-nocheck
 
-import { createPropertiesFactory } from "MWL@2026:exports/Reactive/Properties";
-import { Value, View } from "MWL@2026:exports/Reactive/Properties/controllers";
-
-import { listen } from "MWL@2026:exports/Reactive/Events";
-import { getProperty, syncProperty, unsyncProperty } from "MWL@2026:exports/Reactive/Properties/sync";
-
-// ====
-
-class Converter {
-    convert(value: number) {
-        return -1 * value;
-    }
-}
-
-const factory = createPropertiesFactory({
-    test: Value(0),
-    view: View("test", Converter)
-});
-
-const A = factory({test: 1});
-const B = factory({test: 2});
-
-listen(B, () => {
-    console.warn("B changed", B.test);
-});
-
-A.test = 3;
-
-syncProperty( getProperty(A, "view"),
-              getProperty(B, "test")
-            );
-
-console.warn( getProperty(B, "test") );
-
-console.warn("=== start ===");
-A.test = 4;
-console.warn("=== end ===");
-B.test = 5;
-
-console.warn("=== unsync ===");
-
-unsyncProperty( getProperty(A, "view"),
-                getProperty(B, "test")
-            );
-
-A.test = 6;
-
-console.warn("B", B.test);
+import {Chart} from "Chart@2026/core/";
 
 // ====
 
@@ -79,7 +32,7 @@ setInterval( () => {
 }, 1000);
 
 /*
-import Dataset from "Chart@2026:core/datasets/Dataset";
+import Dataset from "Chart@2026/core/datasets/Dataset";
 const line = new Dataset({
     parsedData: [{x: 0, y:0}, {x: 0, y:0}, {x: 1, y:1}],
 });

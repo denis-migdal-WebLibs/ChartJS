@@ -1,7 +1,7 @@
-import { Constant, Value, View } from 'MWL@2026:exports/Reactive/Properties/controllers';
-import { NULL_ARRAY } from 'MWL@2026:exports/types';
+import { Constant, Value, View } from 'MWL@2026/exports/Reactive/PropertySystem/controllers';
+import { NULL_ARRAY } from 'MWL@2026/exports/types';
 import { createDatasetClass } from './core';
-import { WithComponent } from 'Chart@2026:core/registerComponent';
+import { WithComponent } from 'Chart@2026/core/registerComponent';
 import Line from './Line';
 
 import {Chart, ScatterController, LineElement, PointElement, LineController} from 'chart.js';
