@@ -11,13 +11,14 @@
         "watch-types": "npx tsc --noEmit --watch",
         "build": "clear ; webpack --no-watch --mode=development",
         "build-prod": "clear ; webpack --no-watch --mode=production",
-        "watch": "clear ; webpack --watch    --mode=development"
+        "watch": "clear ; webpack --watch    --mode=development",
+        "tests": "clear ; deno task --cwd ./tests test"
     },
     "author": "Denis MIGDAL",
     "license": "MIT",
     "private": "true",
     "dependencies": {
-        "@swc/core": "^1.13.5",
+        "@swc/core": "^1.16.22",
         "chart.js": "^4.5.0",
         "chartjs-plugin-datalabels": "^2.2.0",
         "chartjs-plugin-zoom": "^2.2.0"
@@ -31,7 +32,7 @@
         "mini-css-extract-plugin": "^2.9.0",
         "swc-loader": "^0.2.7",
         "typescript": "^7.0.2",
-        "webpack": "5.107.2",
-        "webpack-cli": "7.0.3"
+        "webpack": "^5.112.2",
+        "webpack-cli": "^7.3.1"
     }
 }

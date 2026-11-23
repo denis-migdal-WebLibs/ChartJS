@@ -1,0 +1,32 @@
+{
+    "tasks": {
+        "test": "deno test --no-check ./**/*.ts --allow-all"
+    },
+    "nodeModulesDir": "auto",
+    "exclude": [
+        "node_modules/"
+    ],
+    "compilerOptions": {
+        "lib": ["deno.ns", "dom", "dom.iterable"]
+    },
+    "unstable": [
+        "sloppy-imports",
+        "node-globals"
+    ],
+    "imports": {
+        "canvas": "npm:canvas@^3.2.3",
+        "std/assert": "jsr:@std/assert",
+        "npm/canvas": "npm:canvas",
+        "chart.js"  : "npm:chart.js@4.6.1",
+        "@config": "./config.ts",
+        "Chart@2026/": "../src/",
+        "MWL@2026/": "../libs/MWL@2026/src/"
+    },
+    "lint": {
+        "rules": {
+        "exclude": [
+            "no-sloppy-imports"
+        ]
+        }
+    }
+}

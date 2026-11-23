@@ -4,9 +4,7 @@
     "include": ["./src"],
     "exclude": [
         "**/*.old",
-
-        "./src/core/",
-        "./src/pages/tests/v1/",
+        "ui/cli"
     ],
 
     "compilerOptions": {

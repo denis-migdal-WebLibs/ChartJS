@@ -1,0 +1,37 @@
+import { Constant, Value } from "MWL@2026/modules/Reactive/Property";
+import { WithComponent } from 'Chart@2026/core/registerComponent';
+import { createDatasetClass } from './core';
+import Dataset from './Dataset';
+
+import {Chart, ScatterController, LineElement, PointElement, LineController} from 'chart.js';
+Chart.register(ScatterController, LineElement, PointElement, LineController);
+
+const Line = createDatasetClass({
+    name         : "Line",
+    properties: {
+        ...Dataset.properties,
+        type      : Constant<"scatter">("scatter"),
+        showPoints: Value   <boolean>  (false),
+    },
+    chartObject  : {
+        showLine   : true,
+        borderWidth: 2,
+        parsing    : false as const,
+        normalized : true
+    },
+    bindings: {
+        ...Dataset.bindings,
+        showPoints: (dataset, showPoints) => {
+            if( showPoints )
+                delete dataset.pointRadius;
+            else
+                dataset.pointRadius = 0;
+        }
+    },
+});
+
+declare module "../Chart/Controller" {
+    interface ChartController extends WithComponent<typeof Line> {}
+}
+
+export default Line;
