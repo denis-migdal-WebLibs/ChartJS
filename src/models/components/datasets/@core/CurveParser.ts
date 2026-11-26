@@ -16,7 +16,7 @@ function isParsed(data: RawData): data is ParsedData {
     return typeof data[0] === "object" && ! Array.isArray(data[0]);
 }
 
-function isPoints(data: RawData): data is [number,number][] {
+function isPoints(data: number[]|[number, number][]): data is [number,number][] {
     return Array.isArray(data[0]);
 }
 
