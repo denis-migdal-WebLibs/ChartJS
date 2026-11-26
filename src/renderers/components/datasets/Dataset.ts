@@ -1,4 +1,4 @@
-import { Dataset, ParsedData } from "Chart@2026/models/components";
+import { Dataset, ParsedDataPoints } from "Chart@2026/models/components";
 import { ObjectTemplate, ObjectUpdater } from "Chart@2026/modules/object/";
 import { defineDatasetRenderer } from "Chart@2026/modules/renderers";
 import { DatasetObject } from "Chart@2026/modules/renderers/@contract/@types";
@@ -12,7 +12,7 @@ export const DatasetEffects = {
     color(dataset: DatasetObject, color: string) {
         dataset.borderColor = dataset.backgroundColor = color;
     },
-    parsedData(dataset: DatasetObject, parsedData: ParsedData) {
+    parsedData(dataset: DatasetObject, parsedData: ParsedDataPoints) {
         // ChartJS requires it to be RW.
         dataset.data = mutable(parsedData);
     }

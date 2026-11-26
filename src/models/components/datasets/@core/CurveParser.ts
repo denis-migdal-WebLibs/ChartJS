@@ -1,11 +1,11 @@
 import type { Calculator } from "MWL@2026/modules/Reactive/Property";
 import type { Mutable } from "MWL@2026/modules/@types";
 
-export type ParsedData = readonly {x: number, y: number}[];
-export type SoAData    = {x: ArrayLike<number>, y: ArrayLike<number>};
-export type RawData    = number[]|[number, number][]|ParsedData|SoAData;
+export type ParsedDataPoints = readonly {x: number, y: number}[];
+export type SoADataPoints   = {x: ArrayLike<number>, y: ArrayLike<number>};
+export type RawDataPoints    = number[]|[number, number][]|ParsedDataPoints|SoADataPoints;
 
-function isParsed(data: RawData): data is ParsedData {
+function isParsed(data: RawDataPoints): data is ParsedDataPoints {
 
     if( ! Array.isArray(data)) // SoA.
         return false;
@@ -21,11 +21,11 @@ function isPoints(data: number[]|[number, number][]): data is [number,number][] 
 }
 
 
-export class CurveParser implements Calculator<[RawData], ParsedData> {
+export class CurveParser implements Calculator<[RawDataPoints], ParsedDataPoints> {
 
-    private allocationCache: Mutable<ParsedData> = [];
+    private allocationCache: Mutable<ParsedDataPoints> = [];
 
-    compute(rawData: RawData) {
+    compute(rawData: RawDataPoints) {
 
         if( isParsed(rawData) ) {
             this.allocationCache.length = 0;
@@ -65,7 +65,7 @@ export class CurveParser implements Calculator<[RawData], ParsedData> {
         }
     }
 
-    protected fillFromSoA(soa: SoAData) {
+    protected fillFromSoA(soa: SoADataPoints) {
         for(let i = 0; i < soa.x.length; ++i) {
             this.allocationCache[i].x = soa.x[i];
             this.allocationCache[i].y = soa.y[i];
