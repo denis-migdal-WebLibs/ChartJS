@@ -9,7 +9,7 @@ export {
     HLine,
 };
 
-export {ParsedData} from "./Dataset";
+export type {ParsedData} from "./@core/CurveParser";
 
 //TODO: idéalement le calculer...
 export type DatasetComponent = Dataset|Line|HLine;

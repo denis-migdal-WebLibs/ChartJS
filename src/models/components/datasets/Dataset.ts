@@ -1,30 +1,13 @@
 import { ChartType } from "chart.js";
 import { Properties } from "MWL@2026/modules/Reactive/Collections/Properties";
 import { Value, Computed } from "MWL@2026/modules/Reactive/Property";
-import { FCT_ID } from "MWL@2026/modules/@types";
-
-//TODO...
-export type ParsedData = readonly {x: number, y: number}[];
-
-/*
-type RawData    = ParsedData;
-
-class ValueConverter {
-
-    readonly cache = [];
-
-    convert( rawData: RawData ) {
-        //TODO...
-        return rawData;
-    }
-}
-/**/
+import { CurveParser, RawData } from "./@core/CurveParser";
 
 //TODO: more complex parser...
 const Dataset = Properties({
     type      : Value<ChartType>("scatter"),
-    data      : Value<ParsedData>([]),
-    parsedData: Computed(["data"], FCT_ID<ParsedData>),
+    data      : Value<RawData>([]),
+    parsedData: Computed(["data"], CurveParser),
     color     : Value("black"),
 /*
     tooltip  : Value<TooltipLabel>(null),
