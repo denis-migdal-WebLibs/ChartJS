@@ -2,10 +2,18 @@ import type { Calculator } from "MWL@2026/modules/Reactive/Property";
 import type { Mutable } from "MWL@2026/modules/@types";
 
 export type ParsedData = readonly {x: number, y: number}[];
-export type RawData    = number[]|[number, number][]|ParsedData;
+export type SoAData    = {x: ArrayLike<number>, y: ArrayLike<number>};
+export type RawData    = number[]|[number, number][]|ParsedData|SoAData;
 
 function isParsed(data: RawData): data is ParsedData {
-    return data.length === 0 || typeof data[0] === "object" && ! Array.isArray(data[0]);
+
+    if( ! Array.isArray(data)) // SoA.
+        return false;
+
+    if( data.length === 0 )
+        return true;
+
+    return typeof data[0] === "object" && ! Array.isArray(data[0]);
 }
 
 function isPoints(data: RawData): data is [number,number][] {
@@ -22,6 +30,14 @@ export class CurveParser implements Calculator<[RawData], ParsedData> {
         if( isParsed(rawData) ) {
             this.allocationCache.length = 0;
             return rawData;
+        }
+
+        if( ! Array.isArray(rawData) ) {
+
+            this.realloc(rawData.x.length);
+            this.fillFromSoA(rawData);
+
+            return this.allocationCache;
         }
 
         this.realloc(rawData.length);
@@ -49,6 +65,12 @@ export class CurveParser implements Calculator<[RawData], ParsedData> {
         }
     }
 
+    protected fillFromSoA(soa: SoAData) {
+        for(let i = 0; i < soa.x.length; ++i) {
+            this.allocationCache[i].x = soa.x[i];
+            this.allocationCache[i].y = soa.y[i];
+        }
+    }
 
     protected fillFromPoints(points: readonly [number, number][]) {
         for(let i = 0; i < points.length; ++i) {
